@@ -40,7 +40,7 @@ server:
           key_name = "autounseal"
           mount_path = "transit/"
           tls_skip_verify = "false"
-          token = "s.ljOifLcwFP5tmOMz5qOnrHLB"
+          token = "{{UNSEAL_TOKEN}}"
         }
         telemetry {
           prometheus_retention_time = "24h"
