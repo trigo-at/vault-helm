@@ -23,17 +23,17 @@ objects:
               parent: "vault-token-renewal-cron-job"
           spec:
             restartPolicy: OnFailure
-            serviceAccountName: vault-backup-serviceaccount
+            serviceAccountName: vault-auth
             containers:
               - name: "vault-token-renewal-cron-job"
                 image: "image-registry.openshift-image-registry.svc:5000/vault/vault-unsealer:latest"
-- apiVersion: rbac.authorization.k8s.io/v1
-  kind: RoleBinding
-  metadata:
-    name: read-secrets
-    namespace: vault
-  subjects:
-  - kind: ServiceAccount
-    name: vault-backup-serviceaccount
-  resources: ["secrets"]
-  verbs: ["get", "update"]
+# - apiVersion: rbac.authorization.k8s.io/v1
+#   kind: RoleBinding
+#   metadata:
+#     name: read-secrets
+#     namespace: vault
+#   subjects:
+#   - kind: ServiceAccount
+#     name: vault-auth
+#   resources: ["secrets"]
+#   verbs: ["get", "update"]
