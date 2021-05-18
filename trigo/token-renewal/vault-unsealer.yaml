@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: "vault-unsealer"
+parameters:
+- name: NEWTOKEN
+  required: true
+objects:
+- apiVersion: v1
+  kind: Secret
+  metadata:
+    name: "vault-unsealer"
+    labels:
+      app: "vault-unsealer"
+  stringData:
+    VAULT_TOKEN: "${NEWTOKEN}"

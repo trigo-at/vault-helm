@@ -79,6 +79,11 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: VAULT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: vault-unsealer
+                  key: VAULT_TOKEN
             - name: POD_IP
               valueFrom:
                 fieldRef:
